@@ -2,18 +2,29 @@
 // import { promises as fs } from "fs";
 const fs = require("fs").promises;
 
-fs.readFile("./text.txt", "utf8")
-  .then((data) => console.log(data))
-  .catch((err) => console.error(err));
+// console.log(process.pid);
 
+(async () => {
+  await fs.writeFile("./bin.txt", "bin");
+  const read = await fs.readFile("./bin.txt", "utf-8");
+  console.log(read);
+})();
+
+// fs.writeFile("./binary.txt", "binary", "binary")
+//   .then((data) => console.log(data))
+//   .catch((err) => console.error(err));
+
+// fs.readFile("./binary.txt", "binary")
+//   .then((data) => console.log(data))
+//   .catch((err) => console.error(err));
 //or
-fs.readFile("./text.txt")
-  .then((data) => console.table(data.toString()))
-  .catch((err) => console.error(err.toString()));
+// fs.readFile("./text.txt")
+//   .then((data) => console.table(data.toString()))
+//   .catch((err) => console.error(err.toString()));
 
 // console.log("__dirname is ", __dirname);
 
-fs.stat("./text.txt").then((stat) => console.log(stat));
+// fs.stat("./text.txt").then((stat) => console.log(stat));
 // const userName = "Anto";
 
 // console.log(`Hello, ${userName}`);
